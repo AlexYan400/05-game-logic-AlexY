@@ -1,0 +1,17 @@
+﻿using System.ComponentModel.DataAnnotations;
+namespace LuckySpin.Models
+{
+    public class Player
+    {
+
+        [Required(ErrorMessage ="Name is required")]
+        public required string FirstName { get; set; }
+
+        [Range(1,9, ErrorMessage = "Choose a number, 1-9")]
+        public int Luck { get; set; }
+
+        //TODO: add a decimal property called Balance. Assign appropriate Range and Error message
+        public decimal Balance { get; set; }
+
+    }
+}
