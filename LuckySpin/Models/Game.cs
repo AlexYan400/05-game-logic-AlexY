@@ -27,8 +27,23 @@ namespace LuckySpin.Models
         //TODO: Implement the PlayTurn Method as shown in Figure 1. Be sure to set Game Status appropriately
         //      Run Unit Tests to check
         public void PlayTurn(Spin spin){
-
-
+         
+      if (Player.Balance >= PlayCost) {
+           
+            Player.Balance -= PlayCost;
+     
+          if (!spin.isWinning(Player))
+                {
+                    
+                   Status = GameStatus.Spinning;
+                }  else {
+                    Player.Balance += PlayCost * 2;
+                  
+                }
+           
+            AddSpin(spin);
+      } else {
+            Status = GameStatus.GameOver;}
         }
         //Game helper methods
         public void Start()
