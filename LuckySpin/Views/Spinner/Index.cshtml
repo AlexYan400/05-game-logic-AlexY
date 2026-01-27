@@ -27,8 +27,10 @@
             </select>
             <span asp-validation-for="Luck"></span>
         </label>
-           <!-- TODO: Add a new input and validation field for the starting bet tag helpers to connect it to the Model and manage display -->
-
+         <label> 
+          <input asp-for="Balance" placeholder=" Your Starting Bet" />
+            <span asp-validation-for="Balance"></span> <!-- TODO: Add a new input and validation field for the starting bet tag helpers to connect it to the Model and manage display -->
+        </label>
     </fieldset>
     <input type="submit" value="Start Betting" />
 </form>

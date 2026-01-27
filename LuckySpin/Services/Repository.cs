@@ -11,9 +11,7 @@ namespace LuckySpin.Services
          **/
 
         public required Player Player { get; set; }
-        //TODO: Add the Game Model
-        
-
+        public required Game Game { get; set; }
 
     }
 

@@ -33,11 +33,14 @@ namespace LuckySpin.Controllers
         {
             if(!ModelState.IsValid) { return View(); }
 
-            //TODO: Store the player in the repository
+            //Store the player in the repository
+            _repository.Player = player;
     
-            //TODO:Create a new Game with this Player and store it in the repository
+            //Create a new Game with this Player and store it in the repository
+            _repository.Game = new Game { Player = player };
 
-            //TODO: Start the Game
+            //Start the Game
+            _repository.Game.Start();
 
 
             return RedirectToAction("Spin");
@@ -51,9 +54,9 @@ namespace LuckySpin.Controllers
             //Plays a turn with a new Spin
             Spin spin = new Models.Spin();  
             _repository.Game.PlayTurn(spin);
-            //TODO: check to see if the game is done (HINT: Use the Game Status)
-            //.     if so, redirect to the LuckList Action to show the list of spins
-            if ( false ) 
+            //Check to see if the game is done by checking the Game Status
+            //If the game is Won or GameOver, redirect to the LuckList Action to show the list of spins
+            if ( _repository.Game.Status == GameStatus.Won || _repository.Game.Status == GameStatus.GameOver ) 
             {
                 return RedirectToAction("LuckList");
             }

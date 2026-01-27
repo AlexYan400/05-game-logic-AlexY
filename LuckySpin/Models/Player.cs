@@ -10,7 +10,9 @@ namespace LuckySpin.Models
         [Range(1,9, ErrorMessage = "Choose a number, 1-9")]
         public int Luck { get; set; }
 
-        //TODO: add a decimal property called Balance. Assign appropriate Range and Error message
+     
+   //TODO: add a decimal property called Balance. Assign appropriate Range and Error message
+        [Range(3,10, ErrorMessage = "Choose a number, 3-10")]
         public decimal Balance { get; set; }
 
     }
